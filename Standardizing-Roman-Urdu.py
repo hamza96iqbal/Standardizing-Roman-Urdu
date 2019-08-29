@@ -16,73 +16,73 @@ procededbyH="acefghijlmnoqrstuvwxyz"
 text=text.split(" ")
 
 #using for loop to pick words from list one by one
-for length in range(0,len(text)):
+for index in range(0,len(text)):
 #rule 1
-    text[length] = re.sub('ain$', 'ein', text[length])
+    text[index] = re.sub('ain$', 'ein', text[index])
     
 #rule 2
-    text[length]=text[length][0]+text[length][1:].replace("ar","r")
+    text[index]=text[index][0]+text[index][1:].replace("ar","r")
 
 #rule 3
-    text[length]=text[length].replace("ai","ae")
+    text[index]=text[index].replace("ai","ae")
 
 #rule 4
-    text[length] = re.sub('iy+', 'I', text[length])
+    text[index] = re.sub('iy+', 'I', text[index])
     
 #rule 5
-    text[length] = re.sub('ay$', 'e', text[length])
+    text[index] = re.sub('ay$', 'e', text[index])
 
 #rule 6
-    text[length] = re.sub('ih+', 'eh', text[length])
+    text[index] = re.sub('ih+', 'eh', text[index])
     
 #rule 7
-    text[length] = re.sub('ey$', 'e', text[length])
+    text[index] = re.sub('ey$', 'e', text[index])
 
 #rule 8
-    text[length] = re.sub('s+', 's', text[length])
+    text[index] = re.sub('s+', 's', text[index])
 
 #rule 9
-    text[length] = re.sub('ie$', 'y', text[length])
+    text[index] = re.sub('ie$', 'y', text[index])
     
 #rule 10
-    text[length]=text[length][:-1].replace("ry","ri")+text[length][-1]
+    text[index]=text[index][:-1].replace("ry","ri")+text[index][-1]
 
 #rule 11
-    text[length] = re.sub('^es', 'is', text[length])
+    text[index] = re.sub('^es', 'is', text[index])
     
 #rule 12
-    text[length]=text[length][:-1].replace("sy","si")+text[length][-1]
+    text[index]=text[index][:-1].replace("sy","si")+text[index][-1]
     
 #rule 13
-    text[length] = re.sub('a+', 'a', text[length])
+    text[index] = re.sub('a+', 'a', text[index])
     
 #rule 14    
-    text[length]=text[length][:-1].replace("ty","ti")+text[length][-1]
+    text[index]=text[index][:-1].replace("ty","ti")+text[index][-1]
     
 #rule 15
-    text[length] = re.sub('j+', 'j', text[length])
+    text[index] = re.sub('j+', 'j', text[index])
     
 #rule 16
-    text[length] = re.sub('o+', 'o', text[length])
+    text[index] = re.sub('o+', 'o', text[index])
     
 #rule 17
-    text[length] = re.sub('(ee)+', 'i', text[length])
+    text[index] = re.sub('(ee)+', 'i', text[index])
 
 #rule 18
-    if(len(text[length])>1):
-        if text[length][-1] in 'i' and text[length][-2] in procededbyI:
-            text[length]=text[length][:-1]+"y"
+    if(len(text[index])>1):
+        if text[index][-1] in 'i' and text[index][-2] in procededbyI:
+            text[index]=text[index][:-1]+"y"
 
 #rule 19s
-    text[length] = re.sub('d+', 'd', text[length])
+    text[index] = re.sub('d+', 'd', text[index])
     
 #rule 20
-    text[length] = re.sub('u', 'o', text[length])
+    text[index] = re.sub('u', 'o', text[index])
     
 #rule 21
-    if(len(text[length])>1):
-        if text[length][-1] in 'h' and text[length][-2] in procededbyH:
-            text[length]=text[length][:-1]
+    if(len(text[index])>1):
+        if text[index][-1] in 'h' and text[index][-2] in procededbyH:
+            text[index]=text[index][:-1]
 
 text=" ".join(text)
 
